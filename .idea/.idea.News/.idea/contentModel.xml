@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
+    <e p="C:\Users\Guo-hao Zhang\.Rider2018.2\config\consoles\db" t="IncludeRecursive" />
     <e p="C:\Users\Guo-hao Zhang\.Rider2018.2\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\Guo-hao Zhang\.Rider2018.2\system\resharper-host\Local\Transient\ReSharperHost\v182\SolutionCaches\_News.2094768587.00" t="ExcludeRecursive" />
     <e p="C:\Users\Guo-hao Zhang\Documents\RiderProjects\News" t="IncludeRecursive">
@@ -8,14 +9,16 @@
       <e p="appsettings.json" t="Include" />
       <e p="Bin" t="ExcludeRecursive" />
       <e p="Controllers" t="Include">
+        <e p="AdminController.cs" t="Include" />
+        <e p="ArticleController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
         <e p="article.cs" t="Include" />
+        <e p="ArticleCategory.cs" t="Include" />
+        <e p="ArticleComment.cs" t="Include" />
         <e p="Category.cs" t="Include" />
-        <e p="CategoryArticle.cs" t="Include" />
         <e p="Comment.cs" t="Include" />
-        <e p="CommentArticle.cs" t="Include" />
         <e p="CommentPerson.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="NewsContext.cs" t="Include" />
@@ -37,25 +40,37 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
-      <e p="Services" t="Include">
-        <e p="IArticleService.cs" t="Include" />
-        <e p="ICategoryService.cs" t="Include" />
-        <e p="ICommentService.cs" t="Include" />
-        <e p="IUserService.cs" t="Include" />
+      <e p="Repositories" t="Include">
+        <e p="ArticleRepository.cs" t="Include" />
+        <e p="CategoryRepository.cs" t="Include" />
+        <e p="CommentRepository.cs" t="Include" />
+        <e p="IArticleRepository.cs" t="Include" />
+        <e p="ICategoryRepository.cs" t="Include" />
+        <e p="ICommentRepository.cs" t="Include" />
+        <e p="IUserRepository.cs" t="Include" />
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="Views" t="Include">
         <e p="_ViewImports.cshtml" t="Include" />
-        <e p="_ViewStart.cshtml" t="Include" />
+        <e p="Admin" t="Include">
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Main.cshtml" t="Include" />
+        </e>
         <e p="Home" t="Include">
-          <e p="About.cshtml" t="Include" />
-          <e p="Contact.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Article.cshtml" t="Include" />
+          <e p="Category.cshtml" t="Include" />
+          <e p="Index-Old.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
+          <e p="Search.cshtml" t="Include" />
+          <e p="SignIn.cshtml" t="Include" />
+          <e p="SignUp.cshtml" t="Include" />
         </e>
         <e p="Shared" t="Include">
+          <e p="_AdminLayout.cshtml" t="Include" />
           <e p="_CookieConsentPartial.cshtml" t="Include" />
-          <e p="_Layout.cshtml" t="Include" />
+          <e p="_HomeLayout.cshtml" t="Include" />
           <e p="_ValidationScriptsPartial.cshtml" t="Include" />
           <e p="Error.cshtml" t="Include" />
         </e>

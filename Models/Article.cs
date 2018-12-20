@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace News
+namespace News.Models
 {
     public partial class Article
     {
         public Article()
         {
-            CategoryArticle = new HashSet<CategoryArticle>();
-            CommentArticle = new HashSet<CommentArticle>();
+            ArticleCategory = new HashSet<ArticleCategory>();
+            ArticleComment = new HashSet<ArticleComment>();
         }
 
         public uint Id { get; set; }
@@ -17,7 +17,7 @@ namespace News
         public string Author { get; set; }
         public DateTime PublishDate { get; set; }
 
-        public ICollection<CategoryArticle> CategoryArticle { get; set; }
-        public ICollection<CommentArticle> CommentArticle { get; set; }
+        public ICollection<ArticleCategory> ArticleCategory { get; set; }
+        public ICollection<ArticleComment> ArticleComment { get; set; }
     }
 }

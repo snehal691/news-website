@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace News
+﻿namespace News.Models
 {
     public partial class CommentPerson
     {

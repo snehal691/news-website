@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace News
+﻿namespace News.Models
 {
-    public partial class CommentArticle
+    public partial class ArticleComment
     {
         public uint Id { get; set; }
         public uint CommentId { get; set; }

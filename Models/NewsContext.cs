@@ -1,8 +1,6 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace News
+namespace News.Models
 {
     public partial class NewsContext : DbContext
     {
@@ -16,10 +14,10 @@ namespace News
         }
 
         public virtual DbSet<Article> Article { get; set; }
+        public virtual DbSet<ArticleCategory> ArticleCategory { get; set; }
+        public virtual DbSet<ArticleComment> ArticleComment { get; set; }
         public virtual DbSet<Category> Category { get; set; }
-        public virtual DbSet<CategoryArticle> CategoryArticle { get; set; }
         public virtual DbSet<Comment> Comment { get; set; }
-        public virtual DbSet<CommentArticle> CommentArticle { get; set; }
         public virtual DbSet<CommentPerson> CommentPerson { get; set; }
         public virtual DbSet<Person> Person { get; set; }
         public virtual DbSet<PersonRole> PersonRole { get; set; }
@@ -60,21 +58,9 @@ namespace News
                     .HasColumnType("varchar(30)");
             });
 
-            modelBuilder.Entity<Category>(entity =>
+            modelBuilder.Entity<ArticleCategory>(entity =>
             {
-                entity.ToTable("category");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasColumnName("name")
-                    .HasColumnType("varchar(20)");
-            });
-
-            modelBuilder.Entity<CategoryArticle>(entity =>
-            {
-                entity.ToTable("category_article");
+                entity.ToTable("article_category");
 
                 entity.HasIndex(e => e.ArticleId)
                     .HasName("category_article_article_id_fk");
@@ -89,16 +75,56 @@ namespace News
                 entity.Property(e => e.CategoryId).HasColumnName("category_id");
 
                 entity.HasOne(d => d.Article)
-                    .WithMany(p => p.CategoryArticle)
+                    .WithMany(p => p.ArticleCategory)
                     .HasForeignKey(d => d.ArticleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("category_article_article_id_fk");
 
                 entity.HasOne(d => d.Category)
-                    .WithMany(p => p.CategoryArticle)
+                    .WithMany(p => p.ArticleCategory)
                     .HasForeignKey(d => d.CategoryId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("category_article_category_id_fk");
+            });
+
+            modelBuilder.Entity<ArticleComment>(entity =>
+            {
+                entity.ToTable("article_comment");
+
+                entity.HasIndex(e => e.ArticleId)
+                    .HasName("comment_article_article_id_fk");
+
+                entity.HasIndex(e => e.CommentId)
+                    .HasName("comment_article_comment_id_fk");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ArticleId).HasColumnName("article_id");
+
+                entity.Property(e => e.CommentId).HasColumnName("comment_id");
+
+                entity.HasOne(d => d.Article)
+                    .WithMany(p => p.ArticleComment)
+                    .HasForeignKey(d => d.ArticleId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("comment_article_article_id_fk");
+
+                entity.HasOne(d => d.Comment)
+                    .WithMany(p => p.ArticleComment)
+                    .HasForeignKey(d => d.CommentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("comment_article_comment_id_fk");
+            });
+
+            modelBuilder.Entity<Category>(entity =>
+            {
+                entity.ToTable("category");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasColumnName("name")
+                    .HasColumnType("varchar(20)");
             });
 
             modelBuilder.Entity<Comment>(entity =>
@@ -115,35 +141,6 @@ namespace News
                 entity.Property(e => e.PublishDate)
                     .HasColumnName("publish_date")
                     .HasColumnType("datetime");
-            });
-
-            modelBuilder.Entity<CommentArticle>(entity =>
-            {
-                entity.ToTable("comment_article");
-
-                entity.HasIndex(e => e.ArticleId)
-                    .HasName("comment_article_article_id_fk");
-
-                entity.HasIndex(e => e.CommentId)
-                    .HasName("comment_article_comment_id_fk");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.ArticleId).HasColumnName("article_id");
-
-                entity.Property(e => e.CommentId).HasColumnName("comment_id");
-
-                entity.HasOne(d => d.Article)
-                    .WithMany(p => p.CommentArticle)
-                    .HasForeignKey(d => d.ArticleId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("comment_article_article_id_fk");
-
-                entity.HasOne(d => d.Comment)
-                    .WithMany(p => p.CommentArticle)
-                    .HasForeignKey(d => d.CommentId)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("comment_article_comment_id_fk");
             });
 
             modelBuilder.Entity<CommentPerson>(entity =>

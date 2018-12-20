@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace News
+namespace News.Models
 {
     public partial class Category
     {
         public Category()
         {
-            CategoryArticle = new HashSet<CategoryArticle>();
+            ArticleCategory = new HashSet<ArticleCategory>();
         }
 
         public uint Id { get; set; }
         public string Name { get; set; }
 
-        public ICollection<CategoryArticle> CategoryArticle { get; set; }
+        public ICollection<ArticleCategory> ArticleCategory { get; set; }
     }
 }
