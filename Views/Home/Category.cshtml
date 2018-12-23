@@ -1,0 +1,15 @@
+﻿@{
+    var articles = ViewBag.articles;
+    var category = ViewBag.category;
+}
+<div class="page-header">
+    <h2>@category.Name</h2>
+</div>
+<div class="list-group">
+    @foreach (var article in articles)
+    {
+        <a href="/Home/Article?id=@article.Id" class="list-group-item">
+            <h3>@article.Title <small>@article.Author</small></h3>
+        </a>
+    }
+</div>

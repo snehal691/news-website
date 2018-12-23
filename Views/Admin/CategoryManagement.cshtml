@@ -1,0 +1,36 @@
+@{
+    var categories = ViewBag.categories;
+}
+
+<div class="row">
+    <div class="page-header">
+        <h2>类别管理 <small>类别列表</small></h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>类别名称</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var category in categories)
+        {
+            <tr>
+                <td>@category.Id</td>
+                <td>@category.Name</td>
+                <td class="text-center">
+                    <button class="btn btn-danger" type="button">删除</button>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    <form class="form-inline">
+        <div class="form-group">
+            <input type="text" class="form-control" id="new_category" placeholder="(Required)" required="true"/>
+        </div>
+        <button type="submit" class="btn btn-primary">新建类别</button>
+    </form>
+</div>

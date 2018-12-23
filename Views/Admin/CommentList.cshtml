@@ -1,0 +1,34 @@
+@{
+    var comments = ViewBag.comments;
+    var nicknames = ViewBag.nicknames;
+    var articleTitle = ViewBag.articleTitle;
+}
+
+<div class="row">
+    <div class="page-header">
+        <h2>评论管理 <small>"@articleTitle"的所有评论</small></h2>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>评论日期</th>
+            <th>评论者</th>
+            <th>内容</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        @for(var i = 0; i != comments.Count; i++)
+        {
+            <tr>
+                <td>@comments[i].PublishDate.ToString("g")</td>
+                <td>@nicknames[i]</td>
+                <td>@Html.Raw(comments[i].Content)</td>
+                <td class="text-center">
+                    <a href="" class="btn btn-danger" role="button">删除</a>
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

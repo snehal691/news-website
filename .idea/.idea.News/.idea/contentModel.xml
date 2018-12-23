@@ -54,7 +54,12 @@
         <e p="_ViewImports.cshtml" t="Include" />
         <e p="Admin" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="ArticleList.cshtml" t="Include" />
+          <e p="CategoryManagement.cshtml" t="Include" />
+          <e p="CommentList.cshtml" t="Include" />
+          <e p="CommentManagement.cshtml" t="Include" />
           <e p="Main.cshtml" t="Include" />
+          <e p="Writing.cshtml" t="Include" />
         </e>
         <e p="Home" t="Include">
           <e p="_ViewStart.cshtml" t="Include" />
@@ -77,6 +82,7 @@
       </e>
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
+          <e p="pell.min.css" t="Include" />
           <e p="site.css" t="Include" />
           <e p="site.min.css" t="Include" />
         </e>
@@ -87,6 +93,7 @@
           <e p="banner3.svg" t="Include" />
         </e>
         <e p="js" t="Include">
+          <e p="pell.js" t="Include" />
           <e p="site.js" t="Include" />
           <e p="site.min.js" t="Include" />
         </e>
