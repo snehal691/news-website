@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="~/css/pell.min.css"></link>
 }
 
+@{
+    var categories = ViewBag.categories;
+}
+
 <div class="row">
     <div class="page-header">
         <h2>新闻管理 <small>发布新闻</small></h2>
@@ -29,7 +33,7 @@
             <label for="input_category" class="col-md-1 control-label">新闻类别</label>
             <div class="col-md-11">
                 <select id="input_category" class="form-control">
-                    @foreach (var category in ViewBag.categoryList)
+                    @foreach (var category in categories)
                     {
                         <option value=@category.Id>@category.Name</option>
                     }
