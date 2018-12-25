@@ -15,15 +15,11 @@
       </e>
       <e p="Models" t="Include">
         <e p="article.cs" t="Include" />
-        <e p="ArticleCategory.cs" t="Include" />
-        <e p="ArticleComment.cs" t="Include" />
         <e p="Category.cs" t="Include" />
         <e p="Comment.cs" t="Include" />
-        <e p="CommentPerson.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
         <e p="NewsContext.cs" t="Include" />
         <e p="Person.cs" t="Include" />
-        <e p="PersonRole.cs" t="Include" />
         <e p="Role.cs" t="Include" />
       </e>
       <e p="News.csproj" t="IncludeRecursive" />
