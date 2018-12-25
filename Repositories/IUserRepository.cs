@@ -1,4 +1,4 @@
-namespace News.Service
+namespace News.Repositories
 {
     public interface IUserService
     {
