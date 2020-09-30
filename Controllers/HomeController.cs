@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using News.Models;
 
+//CONTROLLERS
+
 namespace News.Controllers
 {
-    public class HomeController : Controller
+    public class Home_Controller : Controller
     {
         public IActionResult Index()
         {
